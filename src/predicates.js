@@ -95,9 +95,9 @@ const predicates = {
     predicates['array?'](input) && input.length === size
   ),
 
-  'min_size?': (input, size) => {
-    return predicates['array?'](input) && input.length >= size
-  },
+  'min_size?': (input, size) => (
+    predicates['array?'](input) && input.length >= size
+  ),
 
   'max_size?': (input, size) => (
     predicates['array?'](input) && input.length <= size
