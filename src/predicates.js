@@ -32,7 +32,7 @@ const predicates = {
       return isNaN(input)
     } else if (type === 'array') {
       return input.length === 0
-    } else if (type === 'object') {
+    } else if (input && type === 'object') {
       const keys = Object.keys(input)
       return keys.length === 0
     }
