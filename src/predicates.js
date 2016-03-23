@@ -96,8 +96,6 @@ const predicates = {
   ),
 
   'min_size?': (input, size) => {
-    console.log('!!! input', input)
-    console.log('!!! size', size)
     return predicates['array?'](input) && input.length >= size
   },
 
