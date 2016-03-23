@@ -1,3 +1,6 @@
+/**
+ * Error messages for replacement
+ */
 export default {
   'en': {
     'array': 'must be an array',

@@ -1,7 +1,18 @@
+/**
+ * Check if a value is an integer
+ * @param  {Number} n Number to test
+ * @return {Boolean}
+ */
 function isInt (n) {
   return Number(n) === n && n % 1 === 0
 }
 
+/**
+ * Parse a regex from a string.
+ * @param  {String} format A regex defined as a string. Will turn '/foo/gi'
+ * into /foo/gi
+ * @return {RegExp} Parsed regex
+ */
 function parseRegexFromString (format) {
   if (format instanceof RegExp) {
     return format
@@ -11,6 +22,10 @@ function parseRegexFromString (format) {
   }
 }
 
+/**
+ * Object holding the individual predicate tests
+ * @type {Object}
+ */
 const predicates = {
   'none': (input) => (
     input == null
@@ -120,6 +135,13 @@ const predicates = {
   )
 }
 
+/**
+ * Test a single predicate
+ * @param  {String} key Name of the predicate to test
+ * @param  {Mixed} value Value to test
+ * @param  {...Mixed} params Splat of any additional params. Passed on in order.
+ * @return {Bool} Result of the test
+ */
 export default function predicate(key, value, ...params) {
   return predicates[key](value, ...params)
 }
