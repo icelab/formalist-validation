@@ -2,10 +2,10 @@ import test from 'tape'
 import validation from '../src'
 import data from './fixtures/data'
 
-test('it should test "filled?"', (nest) => {
+test('it should test "filled"', (nest) => {
 
   const schema = {
-    'filled?': true
+    'filled': true
   }
   const validate = validation(schema)
 
@@ -24,10 +24,10 @@ test('it should test "filled?"', (nest) => {
   // })
 })
 
-test('it should test "gt?"', (nest) => {
+test('it should test "gt"', (nest) => {
 
   const schema = {
-    'gt?': 5
+    'gt': 5
   }
   const validate = validation(schema)
 
@@ -40,10 +40,10 @@ test('it should test "gt?"', (nest) => {
   })
 })
 
-test('it should test "inclusion?"', (nest) => {
+test('it should test "inclusion"', (nest) => {
 
   const schema = {
-    'inclusion?': [1,2,3]
+    'inclusion': [1,2,3]
   }
   const validate = validation(schema)
 
