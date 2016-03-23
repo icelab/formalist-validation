@@ -2,10 +2,6 @@ function isInt (n) {
   return Number(n) === n && n % 1 === 0
 }
 
-function isFloat (n) {
-  return Number(n) === n && n % 1 !== 0
-}
-
 function parseRegexFromString (format) {
   if (format instanceof RegExp) {
     return format
@@ -63,8 +59,8 @@ const predicates = {
     isInt(input)
   ),
 
-  'float?': (input) => (
-    isFloat(input)
+  'num?': (input) => (
+    typeof input === 'number'
   ),
 
   'str?': (input) => (

@@ -6,8 +6,6 @@ export default {
 
     "exclusion?": "must not be one of: %{list}",
 
-    "eql?": "must be equal to %{eql_value}",
-
     "filled?": "must be filled",
 
     "format?": "is in invalid format",
@@ -15,8 +13,6 @@ export default {
     "gt?": "must be greater than %{num}",
 
     "gteq?": "must be greater than or equal to %{num}",
-
-    "hash?": "must be a hash",
 
     "inclusion?": "must be one of: %{list}",
 
@@ -28,15 +24,11 @@ export default {
 
     "int?": "must be an integer",
 
-    "float?": "must be a float",
-
-    "decimal?": "must be a decimal",
+    "num?": "must be a number",
 
     "date?": "must be a date",
 
     "date_time?": "must be a date time",
-
-    "time?": "must be a time",
 
     "key?": "is missing",
 
@@ -52,8 +44,6 @@ export default {
 
     "none?": "cannot be defined",
 
-    "str?": "must be a string",
-
-    "type?": "must be %{type}"
+    "str?": "must be a string"
   }
 }

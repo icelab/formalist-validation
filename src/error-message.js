@@ -29,11 +29,6 @@ const errors = {
     return replace(message, options)
   },
 
-  "eql?": (message, value, eql_value) => {
-    let options = { eql_value }
-    return replace(message, options)
-  },
-
   "filled?": passThroughMessage,
 
   "format?": passThroughMessage,
@@ -48,8 +43,6 @@ const errors = {
     return replace(message, options)
   },
 
-  "hash?": passThroughMessage,
-
   "inclusion?": (message, value, list) => {
     let options = { list }
     return replace(message, options)
@@ -63,15 +56,11 @@ const errors = {
 
   "int?": passThroughMessage,
 
-  "float?": passThroughMessage,
-
-  "decimal?": passThroughMessage,
+  "num?": passThroughMessage,
 
   "date?": passThroughMessage,
 
   "date_time?": passThroughMessage,
-
-  "time?": passThroughMessage,
 
   "key?": passThroughMessage,
 
@@ -99,9 +88,7 @@ const errors = {
 
   "none?": passThroughMessage,
 
-  "str?": passThroughMessage,
-
-  "type?": "must be %{type}"
+  "str?": passThroughMessage
 }
 
 export default function errorMessage(lang, predicate, value, ...params) {
