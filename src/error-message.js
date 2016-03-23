@@ -9,7 +9,7 @@ function replace(message, options) {
   while (placeholders && placeholders.length) {
     let placeholder = placeholders.shift()
     let key = placeholder.replace(/%\{(.*?)\}/gm, '$1')
-    let regex = new RegExp(placeholder.replace(/\{/gm, "\\{").replace(/\}/gm, "\\}"))
+    let regex = new RegExp(placeholder.replace(/\{/gm, '\\{').replace(/\}/gm, '\\}'))
     message = message.replace(regex, options[key])
   }
   return message
@@ -20,75 +20,75 @@ const passThroughMessage = (message) => {
 }
 
 const errors = {
-  "array?": passThroughMessage,
+  'array': passThroughMessage,
 
-  "empty?": passThroughMessage,
+  'empty': passThroughMessage,
 
-  "exclusion?": (message, value, list) => {
+  'exclusion': (message, value, list) => {
     let options = { list }
     return replace(message, options)
   },
 
-  "filled?": passThroughMessage,
+  'filled': passThroughMessage,
 
-  "format?": passThroughMessage,
+  'format': passThroughMessage,
 
-  "gt?": (message, value, num) => {
+  'gt': (message, value, num) => {
     let options = { num }
     return replace(message, options)
   },
 
-  "gteq?": (message, value, num) => {
+  'gteq': (message, value, num) => {
     let options = { num }
     return replace(message, options)
   },
 
-  "inclusion?": (message, value, list) => {
+  'inclusion': (message, value, list) => {
     let options = { list }
     return replace(message, options)
   },
 
-  "bool?": passThroughMessage,
+  'bool': passThroughMessage,
 
-  "true?": passThroughMessage,
+  'true': passThroughMessage,
 
-  "false?": passThroughMessage,
+  'false': passThroughMessage,
 
-  "int?": passThroughMessage,
+  'int': passThroughMessage,
 
-  "num?": passThroughMessage,
+  'num': passThroughMessage,
 
-  "date?": passThroughMessage,
+  'date': passThroughMessage,
 
-  "date_time?": passThroughMessage,
+  'date_time': passThroughMessage,
 
-  "key?": passThroughMessage,
+  'key': passThroughMessage,
 
-  "attr?": passThroughMessage,
+  'attr': passThroughMessage,
 
-  "lt?": (message, value, num) => {
+  'lt': (message, value, num) => {
     let options = { num, value }
     return replace(message, options)
   },
 
-  "lteq?": (message, value, num) => {
+  'lteq': (message, value, num) => {
     let options = { num }
     return replace(message, options)
   },
 
-  "max_size?": (message, value, num) => {
+  'max_size': (message, value, num) => {
     let options = { num }
     return replace(message, options)
   },
 
-  "min_size?": (message, value, num) => {
+  'min_size': (message, value, num) => {
     let options = { num }
     return replace(message, options)
   },
 
-  "none?": passThroughMessage,
+  'none': passThroughMessage,
 
-  "str?": passThroughMessage
+  'str': passThroughMessage
 }
 
 export default function errorMessage(lang, predicate, value, ...params) {

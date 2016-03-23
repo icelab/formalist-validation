@@ -12,19 +12,19 @@ function parseRegexFromString (format) {
 }
 
 const predicates = {
-  'none?': (input) => (
+  'none': (input) => (
     input == null
   ),
 
-  'key?': (input, name) => {
+  'key': (input, name) => {
     !!input[name]
   },
 
-  'attr?': (input, name) => (
+  'attr': (input, name) => (
     input[name] && typeof input[name] === 'function'
   ),
 
-  'empty?': (input) => {
+  'empty': (input) => {
     const type = typeof input
     if (type === 'string') {
       return !input
@@ -39,83 +39,83 @@ const predicates = {
     return !input
   },
 
-  'filled?': (input) => (
-    !predicates['empty?'](input)
+  'filled': (input) => (
+    !predicates['empty'](input)
   ),
 
-  'bool?': (input) => (
+  'bool': (input) => (
     typeof input === 'boolean'
   ),
 
-  'date?': (input) => (
+  'date': (input) => (
     input instanceof Date
   ),
 
-  'date_time?': (input) => (
+  'date_time': (input) => (
     input instanceof Date
   ),
 
-  'int?': (input) => (
+  'int': (input) => (
     isInt(input)
   ),
 
-  'num?': (input) => (
+  'num': (input) => (
     typeof input === 'number'
   ),
 
-  'str?': (input) => (
+  'str': (input) => (
     typeof input === 'string'
   ),
 
-  'array?': (input) => (
+  'array': (input) => (
     input instanceof Array
   ),
 
-  'lt?': (input, num) => (
+  'lt': (input, num) => (
     input < num
   ),
 
-  'gt?': (input, num) => {
+  'gt': (input, num) => {
     return input > num
   },
 
-  'lteq?': (input, num) => (
-    !predicates['gt?'](input, num)
+  'lteq': (input, num) => (
+    !predicates['gt'](input, num)
   ),
 
-  'gteq?': (input, num) => (
-    !predicates['lt?'](input, num)
+  'gteq': (input, num) => (
+    !predicates['lt'](input, num)
   ),
 
-  'size?': (input, size) => (
-    predicates['array?'](input) && input.length === size
+  'size': (input, size) => (
+    predicates['array'](input) && input.length === size
   ),
 
-  'min_size?': (input, size) => (
-    predicates['array?'](input) && input.length >= size
+  'min_size': (input, size) => (
+    predicates['array'](input) && input.length >= size
   ),
 
-  'max_size?': (input, size) => (
-    predicates['array?'](input) && input.length <= size
+  'max_size': (input, size) => (
+    predicates['array'](input) && input.length <= size
   ),
 
-  'inclusion?': (input, list) => (
-    predicates['array?'](list) && list.includes(input)
+  'inclusion': (input, list) => (
+    predicates['array'](list) && list.includes(input)
   ),
 
-  'exclusion?': (input, list) => (
-    !predicates['inclusion?'](input, list)
+  'exclusion': (input, list) => (
+    !predicates['inclusion'](input, list)
   ),
 
-  'true?': (value) => (
+  'true': (value) => (
     value === true
   ),
 
-  'false?': (value) => (
+  'false': (value) => (
     value === false
   ),
 
-  'format?': (input, regex) => (
+  'format': (input, regex) => (
     parseRegexFromString(regex).test(input)
   )
 }
