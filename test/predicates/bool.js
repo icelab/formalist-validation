@@ -32,9 +32,15 @@ test('it should test the "bool" predicate', (nest) => {
   })
 
   nest.test('... for other falsy values', (assert) => {
+    let schema = {
+      'filled': true,
+      'bool': true
+    }
+    let validate = validation(schema)
+
     data.FALSY.forEach((falsy) => {
       let fail = validate(falsy)
-      assert.ok(fail, [message], falsy)
+      assert.ok(fail.includes(message), falsy)
     })
     assert.end()
   })

@@ -17,5 +17,5 @@ export default {
   STRING_EMPTY: '',
   TRUE: true,
   TRUTHY: [1, '1', 10, 'true', 'foo', new Date(), [], {}],
-  FALSY: [0, '0', 'false', '', NaN],
+  FALSY: [0, '0', 'false', '', undefined, null, NaN],
 }
