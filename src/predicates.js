@@ -63,11 +63,11 @@ const predicates = {
   ),
 
   'date': (input) => (
-    input instanceof Date
+    /^\d{4}-\d{2}-\d{2}$/.test(input)
   ),
 
   'date_time': (input) => (
-    input instanceof Date
+    /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\+\d{2}:\d{2}$/.test(input)
   ),
 
   'int': (input) => (
