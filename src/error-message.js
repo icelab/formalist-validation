@@ -112,8 +112,6 @@ const errors = {
     return replace(message, options)
   },
 
-  'none': passThroughMessage,
-
   'str': passThroughMessage
 }
 

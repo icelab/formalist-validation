@@ -27,10 +27,6 @@ function parseRegexFromString (format) {
  * @type {Object}
  */
 const predicates = {
-  'none': (input) => (
-    input == null
-  ),
-
   'key': (input, name) => {
     !!input[name]
   },

@@ -45,8 +45,6 @@ export default {
 
     'min_size': 'size cannot be less than %{num}',
 
-    'none': 'cannot be defined',
-
     'str': 'must be a string'
   }
 }
