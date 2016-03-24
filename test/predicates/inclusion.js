@@ -2,7 +2,7 @@ import test from 'tape'
 import validation from '../../src'
 import data from '../fixtures/data'
 
-test('it should test "inclusion"', (nest) => {
+test('it should test the "inclusion" predicate', (nest) => {
 
   const schema = {
     'inclusion': [1,2,3]
