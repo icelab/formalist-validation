@@ -2,7 +2,9 @@ import test from 'tape'
 import validation from '../../src'
 import data from '../fixtures/data'
 
-test('it should test "filled"', (nest) => {
+const filledMessage = 'must be filled'
+
+test('it should test the "filled" predicate', (nest) => {
 
   const schema = {
     'filled': true
@@ -10,16 +12,50 @@ test('it should test "filled"', (nest) => {
   const validate = validation(schema)
 
   nest.test('... against strings', (assert) => {
-    let noErrors = validate(data.STRING)
-    let hasErrors = validate(data.STRING_EMPTY)
-    assert.ok(noErrors.length === 0, 'string')
-    assert.ok(hasErrors.length === 1, 'empty string')
+    let pass = validate(data.STRING)
+    let fail = validate(data.STRING_EMPTY)
+    assert.ok(pass.length === 0, 'string')
+    assert.deepLooseEqual(fail, [filledMessage], 'empty string')
     assert.end()
   })
-  // nest.test('... against numbers', (assert) => {
-  //   assert.ok(validate(data.INT_SMALL), 'int')
-  //   assert.ok(validate(data.FLOAT_SMALL), 'float')
-  //   assert.notOk(validate(data.NOT_A_NUMBER), 'NaN')
-  //   assert.end()
-  // })
+
+  nest.test('... against numbers', (assert) => {
+    let passInt = validate(data.INT_SMALL)
+    let passFloat = validate(data.FLOAT_SMALL)
+    let fail = validate(data.NOT_A_NUMBER)
+    assert.ok(passInt.length === 0, 'int')
+    assert.ok(passFloat.length === 0, 'float')
+    assert.deepLooseEqual(fail, [filledMessage], 'NaN')
+    assert.end()
+  })
+
+  nest.test('... against arrays', (assert) => {
+    let pass = validate(data.ARRAY)
+    let fail = validate(data.ARRAY_EMPTY)
+    assert.ok(pass.length === 0, 'array')
+    assert.deepLooseEqual(fail, [filledMessage], 'empty array')
+    assert.end()
+  })
+
+  nest.test('... against objects', (assert) => {
+    let pass = validate(data.OBJECT)
+    let fail = validate(data.OBJECT_EMPTY)
+    assert.ok(pass.length === 0, 'object')
+    assert.deepLooseEqual(fail, [filledMessage], 'empty object')
+    assert.end()
+  })
+
+  nest.test('... against booleans', (assert) => {
+    let passTrue = validate(data.TRUE)
+    let passFalse = validate(data.FALSE)
+    assert.ok(passTrue.length === 0, 'true')
+    assert.ok(passFalse.length === 0, 'false')
+    assert.end()
+  })
+
+  nest.test('... against dates', (assert) => {
+    let pass = validate(data.DATE)
+    assert.ok(pass.length === 0, 'true')
+    assert.end()
+  })
 })
