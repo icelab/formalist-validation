@@ -37,7 +37,9 @@ const predicates = {
 
   'empty': (input) => {
     const type = typeof input
-    if (type === 'string') {
+    if (input instanceof Date) {
+      return false
+    } else if (type === 'string') {
       return !input
     } else if (type === 'number') {
       return isNaN(input)
@@ -46,6 +48,8 @@ const predicates = {
     } else if (input && type === 'object') {
       const keys = Object.keys(input)
       return keys.length === 0
+    } else if (type === 'boolean') {
+      return false
     }
     return !input
   },
