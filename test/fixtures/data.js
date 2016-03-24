@@ -12,5 +12,5 @@ export default {
   OBJECT_EMPTY: {},
   STRING: 'String to test',
   STRING_EMPTY: '',
-  TRUE: true,
+  TRUE: true
 }
