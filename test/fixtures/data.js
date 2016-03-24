@@ -2,6 +2,8 @@ export default {
   ARRAY: [1,2,3],
   ARRAY_EMPTY: [],
   DATE: new Date(),
+  DATE_STRING: '2016-03-25',
+  DATE_TIME_STRING: '2016-03-25T10:00:00+11:00',
   FALSE: false,
   FLOAT_SMALL: 1.5,
   FLOAT_LARGE: 100.5,

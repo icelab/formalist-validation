@@ -1,6 +1,8 @@
 import './filled-or-value'
 import './predicates/attr'
 import './predicates/bool'
+import './predicates/date'
+import './predicates/date-time'
 import './predicates/key'
 import './predicates/empty'
 import './predicates/filled'
