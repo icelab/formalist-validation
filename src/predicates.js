@@ -27,9 +27,9 @@ function parseRegexFromString (format) {
  * @type {Object}
  */
 const predicates = {
-  'key': (input, name) => {
-    !!input[name]
-  },
+  'key': (input, name) => (
+    input[name] != null
+  ),
 
   'attr': (input, name) => (
     input[name] && typeof input[name] === 'function'
