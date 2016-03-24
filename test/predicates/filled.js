@@ -2,7 +2,7 @@ import test from 'tape'
 import validation from '../../src'
 import data from '../fixtures/data'
 
-const filledMessage = 'must be filled'
+const message = 'must be filled'
 
 test('it should test the "filled" predicate', (nest) => {
 
@@ -15,7 +15,7 @@ test('it should test the "filled" predicate', (nest) => {
     let pass = validate(data.STRING)
     let fail = validate(data.STRING_EMPTY)
     assert.ok(pass.length === 0, 'string')
-    assert.deepLooseEqual(fail, [filledMessage], 'empty string')
+    assert.deepLooseEqual(fail, [message], 'empty string')
     assert.end()
   })
 
@@ -25,7 +25,7 @@ test('it should test the "filled" predicate', (nest) => {
     let fail = validate(data.NOT_A_NUMBER)
     assert.ok(passInt.length === 0, 'int')
     assert.ok(passFloat.length === 0, 'float')
-    assert.deepLooseEqual(fail, [filledMessage], 'NaN')
+    assert.deepLooseEqual(fail, [message], 'NaN')
     assert.end()
   })
 
@@ -33,7 +33,7 @@ test('it should test the "filled" predicate', (nest) => {
     let pass = validate(data.ARRAY)
     let fail = validate(data.ARRAY_EMPTY)
     assert.ok(pass.length === 0, 'array')
-    assert.deepLooseEqual(fail, [filledMessage], 'empty array')
+    assert.deepLooseEqual(fail, [message], 'empty array')
     assert.end()
   })
 
@@ -41,7 +41,7 @@ test('it should test the "filled" predicate', (nest) => {
     let pass = validate(data.OBJECT)
     let fail = validate(data.OBJECT_EMPTY)
     assert.ok(pass.length === 0, 'object')
-    assert.deepLooseEqual(fail, [filledMessage], 'empty object')
+    assert.deepLooseEqual(fail, [message], 'empty object')
     assert.end()
   })
 
