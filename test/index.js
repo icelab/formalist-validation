@@ -1,4 +1,7 @@
 import './filled-or-value'
+import './predicates/attr'
+import './predicates/bool'
+import './predicates/key'
 import './predicates/empty'
 import './predicates/filled'
 import './predicates/gt'

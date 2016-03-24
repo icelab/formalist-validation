@@ -8,9 +8,14 @@ export default {
   INT_SMALL: 1,
   INT_LARGE: 100,
   NOT_A_NUMBER: NaN,
-  OBJECT: {a: 1, b: 2, c: 3},
+  OBJECT: { a: 1, b: 2, c: 3},
+  OBJECT_METHOD: {
+    method: () => ( true )
+  },
   OBJECT_EMPTY: {},
   STRING: 'String to test',
   STRING_EMPTY: '',
-  TRUE: true
+  TRUE: true,
+  TRUTHY: [1, '1', 10, 'true', 'foo', new Date(), [], {}],
+  FALSY: [0, '0', 'false', '', NaN],
 }
