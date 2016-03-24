@@ -143,5 +143,6 @@ const predicates = {
  * @return {Bool} Result of the test
  */
 export default function predicate(key, value, ...params) {
-  return predicates[key](value, ...params)
+  const test = predicates[key]
+  return (test) ? predicates[key](value, ...params) : true
 }

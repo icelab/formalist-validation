@@ -13,7 +13,7 @@ export default function validation (schema, options = {lang: 'en'}) {
     const errors = []
     // Only run the tests if we are checking for `filled` or we have a
     // defined `value` to actually check
-    if (schema.filled || value != null) {
+    if (schema && (schema.filled || value != null)) {
       // Test each predicate in the schema
       for (let key in schema) {
         let valid = predicate(key, value, schema[key])
