@@ -24,7 +24,7 @@ test('it should test the "date" predicate', (nest) => {
     }
     let validate = validation(schema)
 
-    // Test all our data except data
+    // Test all our data except date
     let dataWithoutDate = Object.assign({}, data)
     delete dataWithoutDate.DATE_STRING
 
